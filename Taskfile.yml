@@ -1,0 +1,20 @@
+version: '3'
+
+vars:
+  CMD: subscriber
+
+tasks:
+  build:
+    sources:
+      - ./cmd/subscriber/*.go
+      - go.mod
+      - go.sum
+    generates:
+      - ./build/{{.CMD}}{{exeExt}}
+    cmds:
+      - cmd: "CGO_ENABLED=0 go build -v -o ./build/{{.CMD}}{{exeExt}} ./cmd/{{.CMD}}"
+  run:
+    deps: [build]
+    dotenv: [.env]
+    cmds:
+      - cmd: ./build/{{.CMD}}{{exeExt}}
