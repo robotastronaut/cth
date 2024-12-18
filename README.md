@@ -3,7 +3,7 @@
 ## Getting Started
 1. Copy `.env.example` to `.env` and modify to specify proper values for your environment.
 2. Run `docker compose up -d` to spin up the PubSub emulator, configuration services, publisher, and database. The database uses the default postgres port, so you should change that if you have another PG instance running locally.
-3. Run `task run` to spin up the subscriber.
+3. Make sure [Taskfile](https://taskfile.dev/) is installed and run `task run` to spin up the subscriber.
 4. Use any database tool you prefer to inspect and query the database.
 
 ## Notes
